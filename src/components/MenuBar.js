@@ -1,27 +1,30 @@
 import React from 'react';
 import { View, Image, TouchableOpacity, StyleSheet } from 'react-native';
 
+import imagens from '../imagens';
+
+
 const MenuBar = () => {
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.iconContainer}>
         {/* Ícone do menu hamburguer */}
         <Image
-          source={require('./assets/menu.png')}
+          source={imagens['menu']}
           style={styles.icon}
         />
       </TouchableOpacity>
       
       {/* Logo do aplicativo */}
       <Image
-        source={require('./assets/real.png')}
+        source={imagens['real']}
         style={styles.logo}
       />
 
       <TouchableOpacity style={styles.iconContainer}>
         {/* Ícone do carrinho */}
         <Image
-          source={require('./assets/online-shopping.png')}
+          source={imagens['onlineshopping']}
           style={styles.icon}
         />
       </TouchableOpacity>
