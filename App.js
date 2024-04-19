@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import MenuBar from './src/components/MenuBar';
+import PizzaSizeButtons from './src/components/PizzaSizeButtons';
 
 export default function App() {
   return (
@@ -8,6 +9,10 @@ export default function App() {
 
         {/* Barra de menu chataaaaaaaaaaaaaaaaaaa */}
       <MenuBar />
+
+       {/* Conteúdo Principal */}
+      <PizzaSizeButtons />
+
 
 
     </View>
