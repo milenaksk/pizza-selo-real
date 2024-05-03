@@ -1,29 +1,29 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import MenuBar from './src/components/MenuBar';
-import PizzaSizeButtons from './src/components/PizzaSizeButtons';
+import React from 'react';
+import { View, Text, Stylesheet } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+import MenuBar from './src/components/MenuBar.js';
+import Banner from './src/components/Banner.js';
+import Options from './src/components/Options.js';
 
-export default function App() {
+const Stack = createStackNavigator();
+
+const App = () => {
   return (
-    <View style={styles.container}>
-
-        {/* Barra de menu chataaaaaaaaaaaaaaaaaaa */}
-      <MenuBar />
-
-       {/* Conteúdo Principal */}
-      <PizzaSizeButtons />
-
-
-
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{ header: () => <MenuBar /> }} // adicionando a opção header e passando o componente MenuBar
+        />
+        {/* outras telas */}
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'rgba(217, 217, 217)',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
+
+// i hate react native
+
