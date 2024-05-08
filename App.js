@@ -6,6 +6,8 @@ import MenuBar from './src/components/MenuBar.js';
 import Banner from './src/components/Banner.js';
 import Options from './src/components/Options.js';
 
+import TelaInicial from './src/pagina/inicial.js'
+
 const Stack = createStackNavigator();
 
 const App = () => {
@@ -14,16 +16,12 @@ const App = () => {
       <Stack.Navigator>
         <Stack.Screen
           name="Home"
-          component={HomeScreen}
+          component={TelaInicial}
           options={{ header: () => <MenuBar /> }} // adicionando a opção header e passando o componente MenuBar
         />
-        {/* outras telas */}
       </Stack.Navigator>
     </NavigationContainer>
   );
 };
 
 export default App;
-
-// i hate react native
-

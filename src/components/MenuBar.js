@@ -1,12 +1,14 @@
+import { View, Image, StyleSheet } from 'react-native';
+
 const MenuBar = () => {
     return (
       <View style={styles.container}>
         <Image
-          source={require('./../assets/real.png')}
+          source={require('./../../assets/real.png')}
           style={styles.logo}
         />
         <Image
-          source={require('./../assets/menu.png')}
+          source={require('./../../assets/menu.png')}
           style={styles.menuIcon}
         />
       </View>
