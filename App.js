@@ -6,6 +6,8 @@ import MenuBar from './src/components/MenuBar.js';
 import Banner from './src/components/Banner.js';
 import Options from './src/components/Options.js';
 
+// I hate React so much
+
 import TelaInicial from './src/pagina/inicial.js'
 
 const Stack = createStackNavigator();
@@ -13,15 +15,21 @@ const Stack = createStackNavigator();
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Home"
-          component={TelaInicial}
-          options={{ header: () => <MenuBar /> }} // adicionando a opção header e passando o componente MenuBar
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Home"
+        component={TelaInicial}
+        options={{ header: () => (
+          <View>
+            <MenuBar />
+          </View>
+        ) }}
+      />
+    </Stack.Navigator>
+  </NavigationContainer>
+
+);
 };
+
 
 export default App;

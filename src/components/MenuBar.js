@@ -39,13 +39,13 @@ const MenuBar = () => {
       alignSelf: 'center', // centralizar a logo na menubar
     },
     menuIcon: {
-      width: 30, // largura do ícone do menu
-      height: 30, // altura do ícone do menu
+      width: 25, // largura do ícone do menu
+      height: 25, // altura do ícone do menu
       resizeMode: 'contain',
     },
     carrinho: {
-      width: 30, // largura do ícone do carrinho
-      height: 30, // altura do ícone do carrinho
+      width: 25, // largura do ícone do carrinho
+      height: 25, // altura do ícone do carrinho
       resizeMode: 'contain',
     },
   });
