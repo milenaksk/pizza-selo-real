@@ -1,11 +1,11 @@
 import { Text, View } from "react-native";
 
-const TelaInicial = () => {
+const TelaOpcao = () => {
   return (
     <View>
-      <Text>Inicial</Text>
+      <Text>Opcao</Text>
     </View>
   );
 };
 
-export default TelaInicial;
+export default TelaOpcao;

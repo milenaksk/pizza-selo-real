@@ -1,11 +1,11 @@
 import { Text, View } from "react-native";
 
-const TelaInicial = () => {
+const TelaCarrinho = () => {
   return (
     <View>
-      <Text>Inicial</Text>
+      <Text>Carrinho</Text>
     </View>
   );
 };
 
-export default TelaInicial;
+export default TelaCarrinho;
