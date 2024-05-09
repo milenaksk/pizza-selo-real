@@ -4,6 +4,10 @@ const MenuBar = () => {
     return (
       <View style={styles.container}>
         <Image
+          source={require('./../../assets/carrinho.png')}
+          style={styles.carrinho}
+        />
+        <Image
           source={require('./../../assets/real.png')}
           style={styles.logo}
         />
@@ -32,10 +36,16 @@ const MenuBar = () => {
       width: 25, // largura da logo
       height: 25, // altura da logo
       resizeMode: 'contain',
+      alignSelf: 'center', // centralizar a logo na menubar
     },
     menuIcon: {
       width: 30, // largura do ícone do menu
       height: 30, // altura do ícone do menu
+      resizeMode: 'contain',
+    },
+    carrinho: {
+      width: 30, // largura do ícone do carrinho
+      height: 30, // altura do ícone do carrinho
       resizeMode: 'contain',
     },
   });
