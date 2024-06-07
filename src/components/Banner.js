@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
-const Options = () => {
+
+const Banner = () => {
   return (
     <View style={styles.bannerContainer}>
       <Text style={styles.bannerText}>Sua pizza favorita está aqui!</Text>
@@ -23,4 +24,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Options;
+export default Banner;
