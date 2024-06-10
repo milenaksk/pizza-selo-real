@@ -7,7 +7,7 @@ const CarrinhoScreen = () => {
   return (
     <View style={{flex: 1}}>
       <ScrollView>
-        <Text>Hello, I am Test!</Text>
+        <Text>Aqui é Carrinho</Text>
       </ScrollView>
       <Pe/>
     </View>

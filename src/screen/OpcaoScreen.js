@@ -1,7 +1,10 @@
 import { TouchableOpacity, ScrollView, Text, View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import Pe from "../component/Pe";
 
 const OpcaoScreen = () => {
+  const nav = useNavigation();
+
   return (
     <View style={{flex: 1}}>
       <ScrollView>
@@ -29,7 +32,7 @@ const OpcaoScreen = () => {
               paddingTop:10,
               paddingBottom:10,
               backgroundColor:"#8B0000"
-              }}>
+              }} onPress={() => nav.navigate("Carrinho")}>
                 <Text style={{color: "#FFD700", textAlign: "center", fontSize: 36}}>Sabores</Text>
               </TouchableOpacity>
           </View>
@@ -57,7 +60,7 @@ const OpcaoScreen = () => {
               paddingTop:10,
               paddingBottom:10,
               backgroundColor:"#8B0000"
-              }}>
+              }} onPress={() => nav.navigate("Carrinho")}>
                 <Text style={{color: "#FFD700", textAlign: "center", fontSize: 36}}>Sabores</Text>
               </TouchableOpacity>
           </View>
@@ -85,7 +88,7 @@ const OpcaoScreen = () => {
               paddingTop:10,
               paddingBottom:10,
               backgroundColor:"#8B0000"
-              }}>
+              }} onPress={() => nav.navigate("Carrinho")}>
                 <Text style={{color: "#FFD700", textAlign: "center", fontSize: 36}}>Opções</Text>
               </TouchableOpacity>
           </View>
