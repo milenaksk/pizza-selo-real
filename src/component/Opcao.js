@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 
-const Options = () => {
+const InicialOpcao = () => {
   return (
     <View>
       <TouchableOpacity onPress={() => console.log('Grande selecionado')}>
@@ -17,4 +17,4 @@ const Options = () => {
   );
 };
 
-export default Options;
+export default InicialOpcao;
