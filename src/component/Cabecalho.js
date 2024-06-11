@@ -31,7 +31,7 @@ const Cabecalho = () => {
       <TouchableOpacity onPress={(goCarrinho)}>
         <Image
           style={{ width: 32, height: 32 }}
-          source={require("../../assets/carrinho.png")}
+          source={require("../../assets/contorno-da-seta-de-login.png")}
         />
       </TouchableOpacity>
     </View>
