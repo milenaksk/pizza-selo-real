@@ -9,6 +9,7 @@ import InicialScreen from "../screen/InicialScreen.js";
 import OpcaoScreen from "../screen/OpcaoScreen.js";
 import CarrinhoScreen from "../screen/CarrinhoScreen.js";
 import PagamentoScreen from "../screen/PagamentoScreen.js";
+import LoginScreen from "../screen/LoginScreen.js";
 
 const Stack = createStackNavigator();
 
@@ -30,6 +31,7 @@ const AppNavigator = () => {
         <Stack.Screen name="Opcao" component={OpcaoScreen} />
         <Stack.Screen name="Carrinho" component={CarrinhoScreen} />
         <Stack.Screen name="Pagamento" component={PagamentoScreen} />
+        <Stack.Screen name="Login" component={LoginScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

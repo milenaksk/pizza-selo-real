@@ -4,8 +4,8 @@ import { View, Image, TouchableOpacity } from "react-native";
 const Cabecalho = () => {
   const nav = useNavigation();
 
-  const goCarrinho = () => {
-    nav.navigate("Carrinho");
+  const goLogin = () => {
+    nav.navigate("Login");
   }
   
   return (
@@ -28,7 +28,7 @@ const Cabecalho = () => {
         style={{ width: 32, height: 32 }}
         source={require("../../assets/real.png")}
       />
-      <TouchableOpacity onPress={(goCarrinho)}>
+      <TouchableOpacity onPress={(goLogin)}>
         <Image
           style={{ width: 32, height: 32 }}
           source={require("../../assets/contorno-da-seta-de-login.png")}
