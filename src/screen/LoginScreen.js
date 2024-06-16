@@ -1,9 +1,17 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity } from 'react-native';
 
 const LoginButton = () => (
   <View style={styles.loginButtonContainer}>
     <Button title="ENTRAR" onPress={() => {}} color="#8B0000"/>
+  </View>
+);
+
+const CriarContaLink = ({ onPress }) => (
+  <View style={styles.linkContainer}>
+    <TouchableOpacity onPress={onPress}>
+      <Text style={styles.linkText}>Não tenho uma conta</Text>
+    </TouchableOpacity>
   </View>
 );
 
@@ -30,6 +38,7 @@ const LoginScreen = () => {
         secureTextEntry={true}
       />
       <LoginButton></LoginButton>
+      <CriarContaLink onPress={null} />
     </View>
   );
 };
@@ -50,7 +59,7 @@ const styles = StyleSheet.create({
     width: '100%',
     borderColor: '#8B0000',
     borderWidth: 2,
-    borderRadius: 5, // bordas arredondadas
+    borderRadius: 5,
     marginBottom: 20,
     paddingHorizontal: 10,
     backgroundColor: '#D3D3D3',
@@ -58,7 +67,15 @@ const styles = StyleSheet.create({
   loginButtonContainer: {
     borderRadius: 10,
     padding: 10,
-    overflow: 'hidden', // bordas arredondadas
+    overflow: 'hidden',
+  },
+  linkContainer: {
+    marginTop: 10,
+  },
+  linkText: {
+    marginTop: 10,
+    color: '#8B0000',
+    textDecorationLine: 'underline',
   },
 });
 
