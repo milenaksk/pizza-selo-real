@@ -1,6 +1,8 @@
 import React, { useState} from 'react';
 import { StyleSheet, Text, View, TextInput, Button, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import Global from '../Global';
+import { adicionarConta, encontrarEmail } from '../database/BaseDados';
 
 export default function App(){
   const [nome, setNome] = useState('');
@@ -13,8 +15,21 @@ export default function App(){
   const [bairro  , setBairro] = useState(''); 
   const nav = useNavigation();
 
-  const goLogin = () => {
-    nav.navigate("Login");
+  const botaoLogin = () => {
+    encontrarEmail(email, (result) => {
+      if (result == null) {
+        adicionarConta(email, senha, (result) => {
+          if (result == null) {
+            console.error("Erro ao criar conta.");
+          } else {
+            console.log("Criado com sucesso.");
+            nav.navigate("Login");
+          }
+        });
+      } else {
+        console.error("Email ja existe.");
+      }
+    });
   }
 
   //  titulo do botão foi alterado para "CADASTRAR"
@@ -83,7 +98,7 @@ export default function App(){
            placeholder='Bairro'
            />
 
-           <CadastrarButton onPress={goLogin}/>
+           <CadastrarButton onPress={botaoLogin}/>
 
     </View>
   )

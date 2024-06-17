@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { encontrarConta } from '../database/BaseDados';
+import Global from '../Global';
 
 const LoginButton = ({onPress}) => (
   <View style={styles.loginButtonContainer}>
@@ -26,7 +28,15 @@ const LoginScreen = () => {
   }
 
   const goInicial = () => {
-    nav.navigate("Inicial");
+    encontrarConta(email, password, (result) => {
+      if (result == null) {
+        console.error("Usuario não encontrado.")
+      } else {
+        console.log("Logado com sucesso.");
+        Global.isLogged = true;
+        nav.navigate("Inicial");
+      }
+    });
   }
 
   return (
@@ -48,7 +58,7 @@ const LoginScreen = () => {
         secureTextEntry={true}
       />
       <LoginButton onPress={goInicial}></LoginButton>
-      <CriarContaLink onPress={goCadastro}  />
+      <CriarContaLink onPress={goCadastro} />
     </View>
   );
 };

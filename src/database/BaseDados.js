@@ -1,22 +1,20 @@
-import { openDatabase }  from 'expo-sqlite';
+import * as SQLite  from 'expo-sqlite';
 
-const db = openDatabase('PizzaSeloReal.db');
+const db = SQLite.openDatabaseAsync('PizzaSeloReal');
 
-db.transaction((tx) => {
-  tx.executeSql(
-    `
-    CREATE TABLE IF NOT EXISTS contas(
-        id INTEGER PRIMARY KEY AUTOINCREMENT, 
-        email TEXT, 
-        senha TEXT
-    );
-    `
-  );
-});
+await db.execAsync(
+`
+CREATE TABLE IF NOT EXISTS contas(
+    id INTEGER PRIMARY KEY AUTOINCREMENT, 
+    email TEXT, 
+    senha TEXT
+);
+`
+);
 
 const adicionarConta = (email, senha, callback) => {
-    db.transaction((tx) => {
-      tx.executeSql(
+    db.withTransactionAsync(async () => {
+      db.executeAsync(
         'INSERT INTO contas (email, senha) VALUES (?, ?)',
         [email, senha],
         (_, result) => {
@@ -31,8 +29,8 @@ const adicionarConta = (email, senha, callback) => {
 };
 
 const encontrarConta = (email, senha, callback) => {
-    db.transaction((tx) => {
-      tx.executeSql('SELECT * FROM contas WHERE email = ? AND senha = ?', [email, senha], (_, { rows }) => {
+  db.withTransactionAsync(async () => {
+    db.executeAsync('SELECT * FROM contas WHERE email = ? AND senha = ?', [email, senha], (_, { rows }) => {
         if (rows.length > 0) {
           callback(rows._array[0]);
         } else {
@@ -42,4 +40,16 @@ const encontrarConta = (email, senha, callback) => {
     });
 };
 
-export { adicionarConta, encontrarConta };
+const encontrarEmail= (email, callback) => {
+  db.withTransactionAsync(async () => {
+    db.executeAsync('SELECT * FROM contas WHERE email = ?', [email], (_, { rows }) => {
+      if (rows.length > 0) {
+        callback(rows._array[0]);
+      } else {
+        callback(null);
+      }
+    });
+  });
+};
+
+export { adicionarConta, encontrarConta, encontrarEmail };

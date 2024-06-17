@@ -1,11 +1,16 @@
 import { useNavigation } from "@react-navigation/native";
 import { View, Image, TouchableOpacity } from "react-native";
+import Global from "../Global";
 
 const Cabecalho = () => {
   const nav = useNavigation();
 
-  const goLogin = () => {
-    nav.navigate("Login");
+  const botao = () => {
+    if (Global.isLogged != undefined && !Global.isLogged) {
+      nav.navigate("Login");
+    } else {
+      console.log("Já esta logado.");
+    }
   }
   
   return (
@@ -28,7 +33,7 @@ const Cabecalho = () => {
         style={{ width: 32, height: 32 }}
         source={require("../../assets/real.png")}
       />
-      <TouchableOpacity onPress={(goLogin)}>
+      <TouchableOpacity onPress={(botao)}>
         <Image
           style={{ width: 32, height: 32 }}
           source={require("../../assets/contorno-da-seta-de-login.png")}
