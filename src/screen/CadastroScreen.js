@@ -1,5 +1,6 @@
 import React, { useState} from 'react';
 import { StyleSheet, Text, View, TextInput, Button, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 export default function App(){
   const [nome, setNome] = useState('');
@@ -10,6 +11,11 @@ export default function App(){
   const [numero , setNumero] = useState('');
   const [complemento , setComplemento] = useState('');
   const [bairro  , setBairro] = useState(''); 
+  const nav = useNavigation();
+
+  const goLogin = () => {
+    nav.navigate("Login");
+  }
 
   //  titulo do botão foi alterado para "CADASTRAR"
   const CadastrarButton = ({onPress}) => (
@@ -77,7 +83,7 @@ export default function App(){
            placeholder='Bairro'
            />
 
-           <CadastrarButton onPress={() => console.log("lalala cadastro clicado milena diva")}/>
+           <CadastrarButton onPress={goLogin}/>
 
     </View>
   )
