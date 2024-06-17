@@ -21,7 +21,9 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      
+      "package": "br.com.pizzaseloreal"
     },
     "web": {
       "favicon": "./assets/favicon.png"
