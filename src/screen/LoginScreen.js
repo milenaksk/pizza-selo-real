@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-const LoginButton = () => (
+const LoginButton = ({onPress}) => (
   <View style={styles.loginButtonContainer}>
-    <Button title="ENTRAR" onPress={() => {}} color="#8B0000"/>
+    <Button title="ENTRAR" onPress={onPress} color="#8B0000"/>
   </View>
 );
 
-const CriarContaLink = ({ onPress }) => (
+const CriarContaLink = ({onPress}) => (
   <View style={styles.linkContainer}>
     <TouchableOpacity onPress={onPress}>
       <Text style={styles.linkText}>Não tenho uma conta</Text>
@@ -23,6 +23,10 @@ const LoginScreen = () => {
 
   const goCadastro = () => {
     nav.navigate("Cadastro");
+  }
+
+  const goInicial = () => {
+    nav.navigate("Inicial");
   }
 
   return (
@@ -43,7 +47,7 @@ const LoginScreen = () => {
         value={password}
         secureTextEntry={true}
       />
-      <LoginButton></LoginButton>
+      <LoginButton onPress={goInicial}></LoginButton>
       <CriarContaLink onPress={goCadastro}  />
     </View>
   );
