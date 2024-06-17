@@ -35,7 +35,7 @@ export default function App(){
   //  titulo do botão foi alterado para "CADASTRAR"
   const CadastrarButton = ({onPress}) => (
     <View style={styles.cadastroButtonContainer}>
-      <Button title="CADASTRAR" onPress={onPress} color="#8B0000"/>
+      <Button title="CADASTRAR" onPress={onPress} color="#fff"/>
     </View>
   );
   
@@ -66,6 +66,7 @@ export default function App(){
        <TextInput
            style={styles.input}
            value={senha} 
+           secureTextEntry={true}
            onChangeText={ (senha)=> setSenha(senha)}
            placeholder='Senha'
        />
