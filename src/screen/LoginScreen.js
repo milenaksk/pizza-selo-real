@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const LoginButton = () => (
   <View style={styles.loginButtonContainer}>
@@ -18,6 +19,11 @@ const CriarContaLink = ({ onPress }) => (
 const LoginScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const nav = useNavigation();
+
+  const goCadastro = () => {
+    nav.navigate("Cadastro");
+  }
 
   return (
     <View style={styles.container}>
@@ -38,7 +44,7 @@ const LoginScreen = () => {
         secureTextEntry={true}
       />
       <LoginButton></LoginButton>
-      <CriarContaLink onPress={null} />
+      <CriarContaLink onPress={goCadastro}  />
     </View>
   );
 };
