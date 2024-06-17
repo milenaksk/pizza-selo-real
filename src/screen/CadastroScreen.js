@@ -77,7 +77,7 @@ export default function App(){
            placeholder='Bairro'
            />
 
-           <CadastrarButton onPress={() => console.log("lalala cadastro clicado")}/>
+           <CadastrarButton onPress={() => console.log("lalala cadastro clicado milena diva")}/>
 
     </View>
   )
