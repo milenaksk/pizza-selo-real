@@ -1,7 +1,5 @@
 import React, { useState} from 'react';
-import { StyleSheet, Text, View, TextInput, button, TouchableOpacity } from 'react-native';
-
-
+import { StyleSheet, Text, View, TextInput, Button, TouchableOpacity } from 'react-native';
 
 export default function App(){
   const [nome, setNome] = useState('');
@@ -12,8 +10,14 @@ export default function App(){
   const [numero , setNumero] = useState('');
   const [complemento , setComplemento] = useState('');
   const [bairro  , setBairro] = useState(''); 
+
+  //  titulo do botão foi alterado para "CADASTRAR"
+  const CadastrarButton = ({onPress}) => (
+    <View style={styles.cadastroButtonContainer}>
+      <Button title="CADASTRAR" onPress={onPress} color="#8B0000"/>
+    </View>
+  );
   
- 
 
   return (
     <View style={styles.container}>
@@ -29,7 +33,7 @@ export default function App(){
            style={styles.input}
            value={celular} 
            onChangeText={ (celular)=> setCelular(celular)}
-           placeholder='(00)00000-0000'
+           placeholder='(00) 00000-0000'
            keyboardType='numeric'
        />
        <TextInput
@@ -49,7 +53,7 @@ export default function App(){
            style={styles.input}
            value={endereço} 
            onChangeText={ (endereço)=> setEndereço(endereço)}
-           placeholder='Av Alfredo Baltazar'
+           placeholder='Av. Alfredo Baltazar'
        /> 
 
         <TextInput
@@ -62,7 +66,7 @@ export default function App(){
        <TextInput
            style={styles.input}
            value={complemento} 
-           onChangeText={ (complemento)=> setComplemento(complemnto)}
+           onChangeText={ (complemento)=> setComplemento(complemento)}
            placeholder='Complemento'
            />
 
@@ -73,9 +77,7 @@ export default function App(){
            placeholder='Bairro'
            />
 
-           <TouchableOpacity style ={ styles.button}>
-            <Text style={styles.buttonText}>CADASTRAR</Text>
-           </TouchableOpacity>
+           <CadastrarButton onPress={() => console.log("lalala cadastro clicado")}/>
 
     </View>
   )
@@ -84,11 +86,13 @@ export default function App(){
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff'
+    backgroundColor: '#fff',
+    alignItems: 'center', //alinhando...
   },
   cadastro:{
     textAlign: 'center',
     marginTop: 80,
+    marginBottom: 50,
     fontSize: 20,
     fontWeight: '600',
 
@@ -96,28 +100,20 @@ const styles = StyleSheet.create({
   input:{
     backgroundColor:'#ffffff',
     borderWidth: 0.7,
+    borderColor: '#8B0000',
     borderRadius: 8,
     bordercolor: 'd3d3d3',
     margin: 8, 
     padding: 10,
     fontSize: 20,
     marginTop: 5,
+    width: '80%',
   },
-  button: {
+  cadastroButtonContainer: {
     backgroundColor: '#8B0000',
-    width: '80%', 
-    height: 50,
+    justifyContent: 'center', 
     alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 18,
-    
-
+    borderRadius: 10,
+    marginTop: 20, 
   },
-  buttonText:{
-    color:'#FFFFFF',
-    fontSize: 20,
-    justifyContent: 'center'
-  },
-  
-
 });
