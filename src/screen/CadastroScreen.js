@@ -1,5 +1,5 @@
 import React, { useState} from 'react';
-import { StyleSheet, Text, View, TextInput, Button, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Global from '../Global';
 import { adicionarConta, encontrarEmail } from '../database/BaseDados';
@@ -20,14 +20,14 @@ export default function App(){
       if (result == null) {
         adicionarConta(email, senha, (result) => {
           if (result == null) {
-            console.error("Erro ao criar conta.");
+            Alert.alert("Erro ao criar conta.");
           } else {
-            console.log("Criado com sucesso.");
+            Alert.alert("Criado com sucesso.");
             nav.navigate("Login");
           }
         });
       } else {
-        console.error("Email ja existe.");
+        Alert.alert("Email ja existe.");
       }
     });
   }

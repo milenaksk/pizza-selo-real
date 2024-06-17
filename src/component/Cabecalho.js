@@ -1,15 +1,15 @@
 import { useNavigation } from "@react-navigation/native";
-import { View, Image, TouchableOpacity } from "react-native";
+import { View, Image, TouchableOpacity, Alert } from "react-native";
 import Global from "../Global";
 
 const Cabecalho = () => {
   const nav = useNavigation();
 
   const botao = () => {
-    if (Global.isLogged != undefined && !Global.isLogged) {
+    if (Global.isLogged != undefined || !Global.isLogged) {
       nav.navigate("Login");
     } else {
-      console.log("Já esta logado.");
+      Alert.alert('Já esta logado.',);
     }
   }
   
